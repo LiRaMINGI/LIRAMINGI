@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cmath>
+
+//#define PI = 3.14159265
+int main()
+{
+	setlocale(LC_ALL, "RU");
+	double A;
+	double B;
+	float a;
+	double PI = 3.14159265;
+	std::cin >> A;
+	std::cin >> B;
+	std::cin >> a;
+
+	double aa = sin((PI * a)/180); // Переводу градусы в  радианы и выч.синус
+	double p = (A * B * aa)/2;
+
+	std::cout << A << std::endl;
+	std::cout << B << std::endl;
+	std::cout << aa  << std::endl;
+	std::cout <<"Площадь треугольника: " << p << std::endl;
+	return 0;
+}
