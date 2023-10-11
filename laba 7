@@ -1,0 +1,49 @@
+ЗАДАЧА 1 (9 ВАРИАНТ)
+#include <iostream>
+#include <math.h>
+
+int main()
+{
+	setlocale(LC_ALL, "RU");
+	int n;
+	std::cout << "Длина массива:";
+	std::cin >> n;
+
+	int mas[1000];
+	char FL = 0;
+
+	for (int i = 0; i < n; i++) //создание массива с числами
+	{
+		std::cin >> mas[i];
+		int k = 0;
+		for (int d = 2; d < sqrt(mas[i]) + 1; d++)
+		{
+			if (mas[i] > 2 && (mas[i] % d == 0))
+			{
+				k += 1;
+			}
+		}
+		if (k == 0)
+		{
+			FL = 1;
+		}
+	}
+		if (FL == 1)
+		{
+			for (int i = 0; i < n-1; i++)
+				for (int j = i+1;j < n; j++)
+					if (mas[i]> mas[j])
+					{
+						int tmp = mas[i];
+						mas[i] = mas[j];
+						mas[j] = tmp;
+			        }
+		}
+
+	for (int i = 0; i < n; i++) //создание массива с числами
+	{
+		std::cout << mas[i]<<" ";
+	}
+
+	return 0;
+}
