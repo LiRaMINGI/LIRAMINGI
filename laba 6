@@ -1,0 +1,36 @@
+#include <iostream>
+//ЛАБА 6, НОМЕР 1
+int main()
+{
+    setlocale(LC_ALL, "RU");
+    int n;
+    int PR = 1;
+    int MAXX = 0;
+    int k = 0;
+    int NK = 0;
+    std::cout << "ВВедите кол-во:";
+    std::cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        std::cin >> x;
+        k=k+1;
+
+        if (x % 10 == 2)
+        {
+            PR = PR * x;
+
+            if (x > MAXX)
+            {
+                MAXX = x;
+                NK = k;
+            }
+        }
+    }
+    std::cout << "Произведение:" << PR << std::endl;
+    std::cout << "Наибольшее из чисел:" << MAXX << std::endl;
+    std::cout << "Номер числа в последовательности:" << NK << std::endl;
+
+
+    return 0;
+}
