@@ -34,3 +34,46 @@ int main()
 
     return 0;
 }
+//////////////////////
+#include <iostream>
+#include <math.h>
+// ЛАБА 6, номер 2 
+int main()
+{
+    setlocale(LC_ALL, "RU");
+    int N;
+    int CH = 0;
+    int kol = 0;
+    int KCH = 0;
+    std::cout << "Введите ваше число: "<< std::endl;
+    std::cin >> N;
+    int B;
+    if (N < pow(10,9))
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            B = N;
+            while (B > 0)
+            {
+                if (B % 10 == i)
+                {
+                    kol += 1;
+                }
+                B = B / 10;
+            }
+            if (kol > KCH)
+            {
+                KCH = kol;
+                CH = i;
+            }
+            kol = 0;
+        }
+        std::cout << "Число: " << CH << std::endl;
+        std::cout << "Кол-во " << KCH << std::endl;
+    }
+    else
+    {
+        std::cout << "Error" << std::endl;
+    }
+    return 0;
+}
