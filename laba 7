@@ -9,7 +9,7 @@ int main()
 	std::cout << "Длина массива:";
 	std::cin >> n;
 
-	int mas[1000];
+	int mas[10000];
 	char FL = 0;
 
 	for (int i = 0; i < n; i++) //создание массива с числами
@@ -45,5 +45,80 @@ int main()
 		std::cout << mas[i]<<" ";
 	}
 
+	return 0;
+}
+
+
+
+
+
+
+
+ЛАБА7/ВАРИАНТ 9/ЗАДАЧА 2
+
+int main()
+{
+	setlocale(LC_ALL, "RU");
+	int n;
+	std::cout << "Длина массива:";
+	std::cin >> n;
+
+	int mas[1000];
+	char FL = 0;
+
+	for (int i = 0; i < n; i++) //создание массива с числами
+	{
+		std::cin >> mas[i];
+	}
+	for (int i = 0; i<n-1; i++)
+		for (int j = i + 1; j < n; j++)
+		{
+			int p = mas[i];
+			int v = mas[j];
+			int PR1 = 1;
+			int PR2 = 1;
+			int PC=0;
+			int VC=0;
+
+			while (p > 0)
+			{
+				PR1 = PR1 * (p % 10);
+				PC = p % 10;
+				p = p / 10;
+			}
+
+			while (v > 0)
+			{
+				PR2 = PR2 * (v % 10);
+				VC = v % 10;
+				v = v / 10;
+			}
+			
+			if (PR1 > PR2)
+			{
+				int TX = mas[i];
+				mas[i] = mas[j];
+				mas[j] = TX;
+			}
+			else if (PR1 == PR2)
+				if (PC > VC)
+				{
+					int TX = mas[i];
+					mas[i] = mas[j];
+					mas[j] = TX;
+				}
+				else if (PC == VC)
+					if (mas[i] > mas[j])
+					{
+						int TX = mas[i];
+						mas[i] = mas[j];
+						mas[j] = TX;
+					}
+		}
+
+	for (int i = 0; i < n; i++) //создание массива с числами
+	{
+		std::cout << mas[i] << " ";
+	}
 	return 0;
 }
