@@ -64,7 +64,6 @@ int main()
 	std::cin >> n;
 
 	int mas[1000];
-	char FL = 0;
 
 	for (int i = 0; i < n; i++) //создание массива с числами
 	{
