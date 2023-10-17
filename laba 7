@@ -1,7 +1,6 @@
 ЗАДАЧА 1 (9 ВАРИАНТ)
 #include <iostream>
 #include <math.h>
-
 int main()
 {
 	setlocale(LC_ALL, "RU");
@@ -49,12 +48,13 @@ int main()
 }
 
 
-
-
-
+////////////////////////////
 
 
 ЛАБА7/ВАРИАНТ 9/ЗАДАЧА 2
+
+#include <iostream>
+#include <math.h>
 
 int main()
 {
@@ -118,6 +118,83 @@ int main()
 	for (int i = 0; i < n; i++) //создание массива с числами
 	{
 		std::cout << mas[i] << " ";
+	}
+	return 0;
+}
+
+
+
+
+
+/////////////////////////
+ЛАБА/ВАРИАНТ 9/ЗАДАЧА 3
+#include <iostream>
+#include <math.h>
+
+int main()
+{
+	setlocale(LC_ALL, "RU");
+	int n;
+	int m;
+	std::cout << "Количество строчек: ";
+	std::cin >> n;
+	std::cout << "Количество столбцов: ";
+	std::cin >> m;
+	int mas[100][100];
+	int KMIN = 999999999;
+	int s = 0;
+	int SP = 0;
+	int k = 0;
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) //создание матрицы с числами
+		{
+			std::cin >> mas[i][j];
+		}
+	}
+	std::cout << "Первоначальный вариант:" << std::endl;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) //создание матрицы с числами
+		{
+			std::cout << mas[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) //создание матрицы с числами
+		{
+			if (mas[i][j]%2==0)
+			{
+				k = k + 1;
+				//std::cout <<" Число "<< mas[i][j] << std::endl;
+			}
+		}
+		if (k < KMIN)
+		{
+			KMIN = k;
+			SP = i;
+			//std::cout << i << " ";
+			//std::cout << KMIN << " ";
+			//std::cout << SP << " ";
+		}
+	 k = 0;
+	}
+	//std::cout << KMIN << std::endl;
+	//std::cout << SP << std::endl;
+
+	for (int j = 0; j < m; j++) {
+		int tx = mas[SP][j];
+		mas[SP][j] = tx * tx;
+	}
+
+	std::cout << "Конечный вариант:" << std::endl;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) //создание матрицы с числами
+		{
+			std::cout << mas[i][j] << "\t";
+		}
+		std::cout << std::endl;
 	}
 	return 0;
 }
